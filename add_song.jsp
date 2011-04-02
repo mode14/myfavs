@@ -1,4 +1,3 @@
-test
 <%@ page language="java" %>
 
 <%@ include file="header.jsp" %>
