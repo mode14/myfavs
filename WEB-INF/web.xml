@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<web-app xmlns="http://java.sun.com/sml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+        http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+    version="2.5">
+
+    <welcome-file-list>
+        <welcome-file>detect.jsp</welcome-file>
+    </welcome-file-list>
+
+
+    <context-param>
+        <param-name>dbuser</param-name>
+        <param-value>root</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>dbpassword</param-name>
+        <param-value>root</param-value>
+    </context-param>
+
+
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>Login</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Main</servlet-name>
+        <servlet-class>Main</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Main</servlet-name>
+        <url-pattern>/Main</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Master</servlet-name>
+        <servlet-class>Master</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Master</servlet-name>
+        <url-pattern>/Master</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddToPlayList</servlet-name>
+        <servlet-class>AddToPlayList</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddToPlayList</servlet-name>
+        <url-pattern>/AddToPlayList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Users</servlet-name>
+        <servlet-class>Users</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Users</servlet-name>
+        <url-pattern>/Users</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ViewPlayList</servlet-name>
+        <servlet-class>ViewPlayList</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewPlayList</servlet-name>
+        <url-pattern>/ViewPlayList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Edit</servlet-name>
+        <servlet-class>Edit</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Edit</servlet-name>
+        <url-pattern>/Edit</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Delete</servlet-name>
+        <servlet-class>Delete</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Delete</servlet-name>
+        <url-pattern>/Delete</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Signup</servlet-name>
+        <servlet-class>Signup</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Signup</servlet-name>
+        <url-pattern>/Signup</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddSong</servlet-name>
+        <servlet-class>AddSong</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddSong</servlet-name>
+        <url-pattern>/AddSong</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Vote</servlet-name>
+        <servlet-class>Vote</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Vote</servlet-name>
+        <url-pattern>/Vote</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Search</servlet-name>
+        <servlet-class>Search</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Search</servlet-name>
+        <url-pattern>/Search</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Common</servlet-name>
+        <servlet-class>Common</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Common</servlet-name>
+        <url-pattern>/Common</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AutoComplete</servlet-name>
+        <servlet-class>AutoComplete</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AutoComplete</servlet-name>
+        <url-pattern>/AutoComplete</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Import</servlet-name>
+        <servlet-class>Import</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Import</servlet-name>
+        <url-pattern>/Import</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Stats</servlet-name>
+        <servlet-class>Stats</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Stats</servlet-name>
+        <url-pattern>/Stats</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Update</servlet-name>
+        <servlet-class>Update</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Update</servlet-name>
+        <url-pattern>/Update</url-pattern>
+    </servlet-mapping>
+</web-app>

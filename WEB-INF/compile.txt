@@ -1,0 +1,3 @@
+"c:\Program Files\java\jdk1.6.0_24\bin\javac" -cp c:\tomcat\lib\servlet-api.jar;c:\tomcat\lib\mysql-connector-java-3.1.14-bin.jar SetSession.java
+
+"c:\Program Files\java\jdk1.6.0_24\bin\javac" -cp c:\tomcat\lib\servlet-api.jar Search.java
