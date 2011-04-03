@@ -1,21 +1,18 @@
   </div> 
 
-</div>
-<!-- / wrapper -->
+<!-- / main -->
 
 <!-- footer -->
-<div class="rapidxwpr floatholder">
-  <div id="footer" class="clearingfix">
+  <div id="footer">
     
     <!-- credits -->
-    <div class="credits">
       Copyright &copy; 2011 &lt;Insert Group Name Here&gt;.  All Rights Reserved.
-    </div>
     <!-- / credits -->
   
   </div>
+  <!-- / footer -->
 </div>				
-<!-- / footer -->
+<!-- / container -->
 
 </body>
 </html>

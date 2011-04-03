@@ -3,9 +3,16 @@
 <head>
   <title>Play List</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-  <link href="static/css/style.css" rel="stylesheet" type="text/css" />
+  <link href="static/css/style_mobile.css" rel="stylesheet" type="text/css" />
 
   <script src="static/js/main.js"></script>
+  <script>
+  window.addEventListener('load', function() {
+    setTimeout(scrollTo, 0, 0, 1);
+    }, false);
+  </script>
+  
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
 
   <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon" /> 
 </head>
@@ -13,7 +20,7 @@
 <body>
 
 <!-- wrapper -->
-<div class="rapidxwpr floatholder">
+<div id="container">
 
   <!-- header -->
   <div id="header">
@@ -38,29 +45,10 @@ Welcome Mobile User: <%= session.getAttribute("full_name") %> | <a href="logout.
     <a href="/"></a>
     <!-- / logo -->
     
-    <!-- topmenu -->
-    <div id="topmenu">
-      <ul>
-      <li><a href="Main"><span>Main</span></a></li>
-      <li><a href="Master?page=1"><span>Master List</span></a></li>
-      <li><a href="Users"><span>User Play Lists</span></a></li>
-      <li><a href="Search"><span>Search</span></a></li>
-      
-<%
-    if(session.getAttribute("login")=="go") {
-%>
-      <li><a href="Edit"><span>Edit Your List</span></a></li>
-      <li><a href="AddSong"><span>Add Song</span></a></li>
-<%
-    }
-%>
-
-      </ul>
-    </div>
-    <!-- / topmenu -->
+    <h1><a href="menu_mobile.jsp">Menu</a></h1>
   
   </div>
   <!-- / header -->
   
   <!-- main body -->
-  <div id="middle">
+  <div id="content">

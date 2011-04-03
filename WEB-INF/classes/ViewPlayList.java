@@ -19,12 +19,7 @@ public class ViewPlayList extends HttpServlet {
         PrintWriter out = res.getWriter();
         
         /* Get Session */
-        HttpSession s = req.getSession(true);
-        /* Make sure user is logged in */
-        if(s.getAttribute("login") == null || (String) s.getAttribute("login") != "go")
-        {
-            req.getRequestDispatcher("login.jsp").forward(req, res);
-        }
+        HttpSession s = req.getSession();
 
         try{
             String dbuser = this.getServletContext().getInitParameter("dbuser");
