@@ -1,3 +1,6 @@
+//Stats.java
+//Page to show basic stats on site's database
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;

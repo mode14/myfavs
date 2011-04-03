@@ -1,3 +1,6 @@
+//Users.java
+//Class to list users to select one for specific play list data
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;

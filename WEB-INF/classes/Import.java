@@ -1,3 +1,5 @@
+//Import.java
+//Used to import from iTunes XML file
 //iTunes import modified from http://www.alloscomp.com/iTunesXMLParser.html
 
 import java.io.IOException;
@@ -22,6 +24,11 @@ public class Import extends HttpServlet {
         
         /* Get Session */
         HttpSession s = req.getSession(true);
+        /* Make sure user is logged in */
+        if(s.getAttribute("login") == null || (String) s.getAttribute("login") != "go")
+        {
+            req.getRequestDispatcher("login.jsp").forward(req, res);
+        }
             
         try{
 

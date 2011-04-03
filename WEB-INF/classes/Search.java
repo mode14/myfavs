@@ -1,3 +1,6 @@
+//Search.java
+//Class to search song database
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;

@@ -1,3 +1,6 @@
+//Master.java
+//Class to display master song list with paging
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;

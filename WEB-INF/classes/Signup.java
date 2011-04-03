@@ -1,3 +1,6 @@
+//Signup.java
+//Class to handle initial signup
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;

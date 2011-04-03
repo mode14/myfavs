@@ -1,3 +1,6 @@
+//Common.java
+//Class to find songs in common with another user
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
@@ -17,6 +20,11 @@ public class Common extends HttpServlet {
         
         /* Get Session */
         HttpSession s = req.getSession(true);
+        /* Make sure user is logged in */
+        if(s.getAttribute("login") == null || (String) s.getAttribute("login") != "go")
+        {
+            req.getRequestDispatcher("login.jsp").forward(req, res);
+        }
 
 
         try{

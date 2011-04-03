@@ -1,3 +1,6 @@
+//AddToPlayList.java
+//Class to add song to play list
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
@@ -17,6 +20,11 @@ public class AddToPlayList extends HttpServlet {
         
         /* Get Session */
         HttpSession s = req.getSession(true);
+        /* Make sure user is logged in */
+        if(s.getAttribute("login") == null || (String) s.getAttribute("login") != "go")
+        {
+            req.getRequestDispatcher("login.jsp").forward(req, res);
+        }
 
 
         try{

@@ -1,3 +1,6 @@
+//AutoComplete.java
+//Class to feed jquery autocomplete with data
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
