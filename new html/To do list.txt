@@ -1,0 +1,19 @@
+TO DO FOR THE GROUP PROJECT:
+
+
+MAIN PAGE
+1. Make a container DIV tage to center the webpage - its background will be white.
+2. Figure out the positioning for the header and sign in utilities.
+3. Make the logo (centered with waves going to it) and figure out its positioning (center?). Waves will be the background image for the header, main header is image, leaving room for sign in
+4. Add the footer in
+5. Expand the navbar (Title, adspace?)
+
+----
+
+6. Add light switch function.
+
+
+---------------------------
+
+MOBILE PAGE
+1. Make it

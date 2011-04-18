@@ -34,7 +34,7 @@ Welcome Mobile User: <%= session.getAttribute("full_name") %> | <a href="logout.
 <%
     } else {
 %>
-<a href="Login">Login</a>
+<a href="Signup">Signup</a> | <a href="Login">Login</a>
 <%
     }
 %>
@@ -45,7 +45,7 @@ Welcome Mobile User: <%= session.getAttribute("full_name") %> | <a href="logout.
     <a href="/"></a>
     <!-- / logo -->
     
-    <h1><a href="menu_mobile.jsp">Menu</a></h1>
+    <br /><br /><br /><h1><a href="menu_mobile.jsp">Main Menu</a></h1>
   
   </div>
   <!-- / header -->

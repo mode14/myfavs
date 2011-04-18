@@ -27,16 +27,16 @@
 <table cellspacing=10>
 
 <tr>
-  <td>Song Name:</td><td><input type="text" name="song_name" id="song_name"></td>
+  <td>Song Name:</td><td><input type="text" name="song_name" id="song_name" maxsize="75"></td>
 </tr>
 <tr>
-  <td>Artist:</td><td><input type="text" name="artist" id="artist"></td>
+  <td>Artist:</td><td><input type="text" name="artist" id="artist" maxsize="75"></td>
 </tr>
 <tr>
-  <td>Album:</td><td><input type="text" name="album" id="album"></td>
+  <td>Album:</td><td><input type="text" name="album" id="album" maxsize="75"></td>
 </tr>
 <tr>
-  <td>Genre:</td><td><input type="text" name="genre" id="genre"></td>
+  <td>Genre:</td><td><input type="text" name="genre" id="genre" maxsize="50"></td>
 </tr>
 
 <tr>

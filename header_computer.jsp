@@ -3,27 +3,20 @@
 <head>
   <title>Play List</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-  <link href="static/css/style.css" rel="stylesheet" type="text/css" />
+  <link href="static/css/new.css" rel="stylesheet" type="text/css" />
 
   <script src="static/js/main.js"></script>
 
-  <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon" /> 
+  <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon" /> 
 </head>
-
 <body>
 
-<!-- wrapper -->
-<div class="rapidxwpr floatholder">
 
-  <!-- header -->
+<div id="layout">
   <div id="header">
   
-    <div id="greeting">
-    
-    <!-- logo -->
-    <a href="/"><img id="logo" src="static/images/logo_v2.png" width=200 height=44 alt="Logo" /></a>
-    <!-- / logo -->
-    
+  <div id="greeting">
+	<!-- HEADER - put any utilities such as sign in here -->
 <%
     if(session.getAttribute("login")=="go") {
 %>
@@ -31,41 +24,35 @@ Welcome: <%= session.getAttribute("full_name") %> | <a href="logout.jsp">Logout<
 <%
     } else {
 %>
-<a href="Login">Login</a>
+<a href="Signup">Signup</a> | <a href="Login">Login</a>
 <%
     }
 %>
+  </div>
 
-    </div>
+	<!-- LINK TO HOMEPAGE HERE -->
+	<a href = ""><img src = "static/images/Logo.jpg" width = "150" height = "150", class = "header"></a>
+  </div>
+  <div id="navbar">
+	<a href ="Main" ><img src = "static/images/buttons/MainRegular.jpg" height = "50" width = "150" name = "Button" onMouseOver = "this.src = 'static/images/buttons/MainSelected.jpg'" onMouseOut = "this.src = 'static/images/buttons/MainRegular.jpg'"></a><br>
+	<a href ="Master?page=1" ><img src = "static/images/buttons/MasterSongListRegular.jpg" height = "50" width = "150" name = "Button" onMouseOver = "this.src = 'static/images/buttons/MasterSongListSelected.jpg'" onMouseOut = "this.src = 'static/images/buttons/MasterSongListRegular.jpg'"></a><br>
+	<a href ="Users" ><img src = "static/images/buttons/UserPlayListsRegular.jpg" height = "50" width = "150" name = "Button" onMouseOver = "this.src = 'static/images/buttons/UserPlayListsSelected.jpg'" onMouseOut = "this.src = 'static/images/buttons/UserPlayListsRegular.jpg'"></a><br>
+	<a href ="Search" ><img src = "static/images/buttons/SearchRegular.jpg" height = "50" width = "150" name = "Button" onMouseOver = "this.src = 'static/images/buttons/SearchSelected.jpg'" onMouseOut = "this.src = 'static/images/buttons/SearchRegular.jpg'"></a><br>
 
-    <!-- logo -->
-    <a href="/"></a>
-    <!-- / logo -->
-    
-    <!-- topmenu -->
-    <div id="topmenu">
-      <ul>
-      <li><a href="Main"><span>Main</span></a></li>
-      <li><a href="Master?page=1"><span>Master List</span></a></li>
-      <li><a href="Users"><span>User Play Lists</span></a></li>
-      <li><a href="Search"><span>Search</span></a></li>
-      
 <%
     if(session.getAttribute("login")=="go") {
 %>
-      <li><a href="Edit"><span>Edit Your List</span></a></li>
-      <li><a href="AddSong"><span>Add Song</span></a></li>
-      <li><a href="Stats"><span>Stats</span></a></li>
+
+	<a href ="Edit" ><img src = "static/images/buttons/EditPlayListRegular.jpg" height = "50" width = "150" name = "Button" onMouseOver = "this.src = 'static/images/buttons/EditPlayListSelected.jpg'" onMouseOut = "this.src = 'static/images/buttons/EditPlayListRegular.jpg'"></a><br>
+	<a href ="AddSong" ><img src = "static/images/buttons/AddSongRegular.jpg" height = "50" width = "150" name = "Button" onMouseOver = "this.src = 'static/images/buttons/AddSongSelected.jpg'" onMouseOut = "this.src = 'static/images/buttons/AddSongRegular.jpg'"></a><br>
+	<a href ="Stats" ><img src = "static/images/buttons/StatsRegular.jpg" height = "50" width = "150" name = "Button" onMouseOver = "this.src = 'static/images/buttons/StatsSelected.jpg'" onMouseOut = "this.src = 'static/images/buttons/StatsRegular.jpg'"></a><br>
 <%
     }
 %>
 
-      </ul>
-    </div>
-    <!-- / topmenu -->
-  
   </div>
-  <!-- / header -->
-  
-  <!-- main body -->
-  <div id="middle">
+
+
+  <div id="content">
+	<!-- MAIN CONTENT GOES HERE -->
+	  <div style="padding:8px;">

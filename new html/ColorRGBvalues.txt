@@ -1,0 +1,6 @@
+NORMAL BLUE: 63, 156, 255
+GRAY: 229, 229, 229
+NORMAL DARK BLUE: 35, 141, 255
+Normal Light Blue: 122, 197, 255
+-------------------------------------------
+Super Light Blue: 155, 228, 255
