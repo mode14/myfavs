@@ -9,7 +9,7 @@
 	/* SETTING FOR MAIN CONTENT */
   	margin-left: auto ;
   	margin-right: auto ; 
-  	text-align: center ;
+  	/* text-align: center ; */
 	background-color: white;
 	min-height: 350px;
   	overflow: auto ;

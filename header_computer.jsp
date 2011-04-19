@@ -44,12 +44,11 @@ Welcome: <%= session.getAttribute("full_name") %> | <a href="logout.jsp">Logout<
 %>
 
 	<a href ="Edit" ><img src = "static/images/buttons/EditPlayListRegular.jpg" height = "50" width = "150" name = "Button" onMouseOver = "this.src = 'static/images/buttons/EditPlayListSelected.jpg'" onMouseOut = "this.src = 'static/images/buttons/EditPlayListRegular.jpg'"></a><br>
-	<a href ="AddSong" ><img src = "static/images/buttons/AddSongRegular.jpg" height = "50" width = "150" name = "Button" onMouseOver = "this.src = 'static/images/buttons/AddSongSelected.jpg'" onMouseOut = "this.src = 'static/images/buttons/AddSongRegular.jpg'"></a><br>
-	<a href ="Stats" ><img src = "static/images/buttons/StatsRegular.jpg" height = "50" width = "150" name = "Button" onMouseOver = "this.src = 'static/images/buttons/StatsSelected.jpg'" onMouseOut = "this.src = 'static/images/buttons/StatsRegular.jpg'"></a><br>
+  <a href ="AddSong" ><img src = "static/images/buttons/AddSongRegular.jpg" height = "50" width = "150" name = "Button" onMouseOver = "this.src = 'static/images/buttons/AddSongSelected.jpg'" onMouseOut = "this.src = 'static/images/buttons/AddSongRegular.jpg'"></a><br>
 <%
     }
 %>
-
+	<a href ="Stats" ><img src = "static/images/buttons/StatsRegular.jpg" height = "50" width = "150" name = "Button" onMouseOver = "this.src = 'static/images/buttons/StatsSelected.jpg'" onMouseOut = "this.src = 'static/images/buttons/StatsRegular.jpg'"></a><br>
   </div>
 
 
