@@ -34,8 +34,14 @@ public class Login extends HttpServlet {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection ("jdbc:mysql://localhost/project", dbuser, dbpassword);
 
+            //Prepared statement for security
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM users where user='" + req.getParameter("user") + "'");            
+            String selectStatement = "SELECT * FROM users where user= ?";
+            PreparedStatement prepStmt = conn.prepareStatement(selectStatement);
+            prepStmt.setString(1, req.getParameter("user"));
+            
+            ResultSet rs = prepStmt.executeQuery();
+            //ResultSet rs = stmt.executeQuery();            
 
             if( rs.next() ) 
             {            
@@ -61,7 +67,7 @@ public class Login extends HttpServlet {
             }
             
             rs.close();
-            stmt.close();
+            prepStmt.close();
             conn.close();
 
         }  catch (Exception e) {
