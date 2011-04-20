@@ -19,11 +19,6 @@ public class ViewPlayList extends HttpServlet {
         
         /* Get Session */
         HttpSession s = req.getSession(true);
-        /* Make sure user is logged in */
-        if(s.getAttribute("login") == null || (String) s.getAttribute("login") != "go")
-        {
-            req.getRequestDispatcher("login.jsp").forward(req, res);
-        }
         
         String select_box = "";
         // fetch user's playlists
