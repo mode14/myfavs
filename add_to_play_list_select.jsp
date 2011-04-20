@@ -1,14 +1,6 @@
 <%@ page language="java" %>
 
-<%
-    if(session.getAttribute("browser")=="mobile") {
-%>
 <%@ include file="header.jsp" %>
-<%
-    } 
-
-
-
 
 <h1>Select Playlist</h1>
 
@@ -45,9 +37,4 @@
 </table>
 </form>
 
-<%
-    if(session.getAttribute("browser")=="mobile") {
-%>
 <%@ include file="footer.jsp" %>
-<%
-    } 
