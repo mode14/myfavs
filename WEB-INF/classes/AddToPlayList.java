@@ -75,10 +75,10 @@ public class AddToPlayList extends HttpServlet {
         String dbpassword = this.getServletContext().getInitParameter("dbpassword");
         String user_play_list_id = "";
         try{
+            Class.forName("com.mysql.jdbc.Driver");
             //they are adding a new playlist
             if(req.getParameter("create") != "")
             {
-                Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection ("jdbc:mysql://localhost/project", dbuser, dbpassword);
 
                 Statement stmt = conn.createStatement();
@@ -99,17 +99,15 @@ public class AddToPlayList extends HttpServlet {
                 user_play_list_id = req.getParameter("existing");
             }
 
+            Connection conn2 = DriverManager.getConnection ("jdbc:mysql://localhost/project", dbuser, dbpassword);
 
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection ("jdbc:mysql://localhost/project", dbuser, dbpassword);
-
-            Statement stmt = conn.createStatement();
-            stmt.execute( "INSERT INTO play_lists VALUES('" + req.getParameter("user_id") + "', '" + req.getParameter("song_id") + "', '" + user_play_list_id + "')" );            
+            Statement stmt2 = conn2.createStatement();
+            stmt2.execute( "INSERT INTO play_lists VALUES('" + req.getParameter("user_id") + "', '" + req.getParameter("song_id") + "', '" + user_play_list_id + "')" );            
             
             req.getRequestDispatcher("add_to_play_list.jsp").forward(req, res); 
             
-            stmt.close();
-            conn.close();
+            stmt2.close();
+            conn2.close();
 
         }  catch (Exception e) {
             req.getRequestDispatcher("add_error.jsp").forward(req, res); 
