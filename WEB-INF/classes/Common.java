@@ -36,9 +36,9 @@ public class Common extends HttpServlet {
 
             Statement stmt = conn.createStatement();
             String mySongs = "SELECT song_id FROM play_lists NATURAL JOIN songs NATURAL JOIN users WHERE play_lists.user_id = '" + s.getAttribute("user_id") + "'";
-            ResultSet rs = stmt.executeQuery("SELECT * FROM play_lists NATURAL JOIN songs NATURAL JOIN users WHERE play_lists.user_id = '" + req.getParameter("user_id") + "' AND song_id IN (" + mySongs + ") ORDER BY song_name");            
+            ResultSet rs = stmt.executeQuery("SELECT * FROM play_lists NATURAL JOIN songs NATURAL JOIN users NATURAL JOIN user_play_lists WHERE play_lists.user_id = '" + req.getParameter("user_id") + "' AND song_id IN (" + mySongs + ") ORDER BY song_name");            
 
-            String table = "<table class=\"stripe\"><tr><th>Song</th><th>Artist</th><th>Album</th><th>Genre</th><th>Votes</th></tr>";
+            String table = "<table class=\"stripe\"><tr><th>Song</th><th>Artist</th><th>Album</th><th>Genre</th><th>Play List</th><th>Votes</th></tr>";
             String full_name = null;
             int x = 0;
 
@@ -53,6 +53,7 @@ public class Common extends HttpServlet {
                 + "<td>" + rs.getString("artist") + "</td>"
                 + "<td>" + rs.getString("album") + "</td>"
                 + "<td>" + rs.getString("genre") + "</td>"
+                + "<td>" + rs.getString("play_list_name") + "</td>"
                 + "<td>" + rs.getString("votes") + " <a href=\"Vote?song_id=" + rs.getString("song_id") + "\">Vote</a></td></tr>";
                 
                 full_name = rs.getString("full_name");

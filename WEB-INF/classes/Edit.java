@@ -35,9 +35,9 @@ public class Edit extends HttpServlet {
             Connection conn = DriverManager.getConnection ("jdbc:mysql://localhost/project", dbuser, dbpassword);
 
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM play_lists NATURAL JOIN songs NATURAL JOIN users WHERE play_lists.user_id = '" + s.getAttribute("user_id") + "' ORDER BY song_name");            
+            ResultSet rs = stmt.executeQuery("SELECT * FROM play_lists NATURAL JOIN songs NATURAL JOIN users NATURAL JOIN user_play_lists WHERE play_lists.user_id = '" + s.getAttribute("user_id") + "' ORDER BY song_name");            
 
-            String table = "<table class=\"stripe\"><tr><th>Song</th><th>Artist</th><th>Album</th><th>Genre</th><th>Delete</th></tr>";
+            String table = "<table class=\"stripe\"><tr><th>Song</th><th>Artist</th><th>Album</th><th>Genre</th><th>Play List</th><th>Delete</th></tr>";
             int x = 0;
             while(rs.next() )
             {
@@ -48,6 +48,7 @@ public class Edit extends HttpServlet {
                 + "<td width=\"25%\">" + rs.getString("artist") + "</td>"
                 + "<td width=\"25%\">" + rs.getString("album") + "</td>"
                 + "<td width=\"15%\">" + rs.getString("genre") + "</td>"
+                + "<td width=\"15%\">" + rs.getString("play_list_name") + "</td>"
                 + "<td width=\"10%\"><a href=\"Delete?song_id=" + rs.getString("play_lists.song_id") + "&user_id=" + rs.getString("play_lists.user_id") + "\">Delete</a></td></tr>";
                 
                 x++;
