@@ -82,7 +82,7 @@ public class AddToPlayList extends HttpServlet {
                 Connection conn = DriverManager.getConnection ("jdbc:mysql://localhost/project", dbuser, dbpassword);
 
                 Statement stmt = conn.createStatement();
-                stmt.executeUpdate( "INSERT INTO user_play_lists VALUES(null, '" + req.getParameter("user_id") + "', '" + req.getParameter("create") + "')"  );
+                stmt.executeUpdate( "INSERT INTO user_play_lists VALUES(null, '" + req.getParameter("user_id") + "', '" + req.getParameter("create") + "')", Statement.RETURN_GENERATED_KEYS  );
 
                 //silly Java trick to get id of last inserted record, hooray for Python+App Engine!
                 ResultSet rsid = stmt.getGeneratedKeys(); 
@@ -110,8 +110,8 @@ public class AddToPlayList extends HttpServlet {
             conn2.close();
 
         }  catch (Exception e) {
-            //req.getRequestDispatcher("add_error.jsp").forward(req, res); 
-            out.println(e.getMessage());
+            req.getRequestDispatcher("add_error.jsp").forward(req, res); 
+            //out.println(e.getMessage());
         }
 
     }
