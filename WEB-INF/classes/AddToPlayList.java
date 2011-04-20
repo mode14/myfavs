@@ -110,7 +110,8 @@ public class AddToPlayList extends HttpServlet {
             conn2.close();
 
         }  catch (Exception e) {
-            req.getRequestDispatcher("add_error.jsp").forward(req, res); 
+            //req.getRequestDispatcher("add_error.jsp").forward(req, res); 
+            out.println(e.getMessage());
         }
 
     }
