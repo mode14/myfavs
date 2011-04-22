@@ -8,6 +8,10 @@
 <form action="AddToPlayList" method="post">
 <input type="hidden" name="song_id" value="<%= request.getAttribute("song_id") %>">
 <input type="hidden" name="user_id" value="<%= request.getAttribute("user_id") %>">
+<p class="note">
+Select a playlist below to add this song to.  You can also create a new playlist with the text box below.
+</p>
+
 <table cellspacing=10>
 
 <%
@@ -24,7 +28,7 @@
 }
 %>
 <tr>
-  <td>Create Playlist:</td><td><input type="text" name="create" maxsize="75"></td>
+  <td>Create New Playlist:</td><td><input type="text" name="create" maxsize="75"></td>
 </tr>
 
 <tr>

@@ -8,6 +8,11 @@
 
 <form action="ViewPlayList" method="post">
 <input type="hidden" name="user_id" value="<%= request.getAttribute("user_id") %>">
+
+<p class="note">
+Select a playlist below from the user's available playlists.
+</p>
+
 <table cellspacing=10>
 
 
