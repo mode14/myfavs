@@ -70,13 +70,11 @@ public class ViewPlayList extends HttpServlet {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM play_lists NATURAL JOIN songs NATURAL JOIN users WHERE play_lists.user_id = '" + req.getParameter("user_id") + "' AND play_lists.play_list_id = '" + req.getParameter("play_list_id") + "'ORDER BY song_name");            
 
-            String table = "<table class=\"stripe\"><tr><th>Song</th><th>Artist</th><th>Album</th><th>Genre</th><th>Votes</th></tr>";
+            String table = "<table class=\"display\" id=\"zebra\"><thead><tr><th>Song</th><th>Artist</th><th>Album</th><th>Genre</th><th>Votes</th></tr></thead>";
             String full_name = null;
-            int x = 0;
             while(rs.next() )
             {
-                if(x % 2 == 0) { table = table + "<tr>";}
-                else { table = table + "<tr class=\"alt\">"; }
+                table = table + "<tr>";
                 if(s.getAttribute("login") != null && (String) s.getAttribute("login") == "go")
                 {
                     table = table + "<td width=\"25%\">" + rs.getString("song_name") + "<br /><a href=AddToPlayList?song_id=" + rs.getString("play_lists.song_id") + "&user_id=" + rs.getString("play_lists.user_id") + ">(Add to playlist)</a></td>";
@@ -91,7 +89,6 @@ public class ViewPlayList extends HttpServlet {
                 + "<td width=\"10%\">" + rs.getString("votes") + " <a href=\"Vote?song_id=" + rs.getString("song_id") + "\">Vote</a></td></tr>";
                 
                 full_name = rs.getString("full_name");
-                x++;
             }
             table = table + "</table>";
             

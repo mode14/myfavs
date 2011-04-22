@@ -2,6 +2,14 @@
 
 <%@ include file="header.jsp" %>
 
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+    $('#zebra').dataTable( {
+      "sPaginationType": "full_numbers"	
+    } );
+  } );
+</script>
+
 <h1>Play List For: <%= request.getAttribute("full_name") %> </h1>
 
 <%

@@ -37,12 +37,10 @@ public class Edit extends HttpServlet {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM play_lists NATURAL JOIN songs NATURAL JOIN users NATURAL JOIN user_play_lists WHERE play_lists.user_id = '" + s.getAttribute("user_id") + "' ORDER BY song_name");            
 
-            String table = "<table class=\"stripe\"><tr><th>Song</th><th>Artist</th><th>Album</th><th>Genre</th><th>Play List</th><th>Delete</th></tr>";
-            int x = 0;
+            String table = "<table class=\"display\" id=\"zebra\"><thead><tr><th>Song</th><th>Artist</th><th>Album</th><th>Genre</th><th>Play List</th><th>Delete</th></tr></thead>";
             while(rs.next() )
             {
-                if(x % 2 == 0) { table = table + "<tr>";}
-                else { table = table + "<tr class=\"alt\">"; }
+                table = table + "<tr>";
                 
                 table = table + "<td width=\"25%\">" + rs.getString("song_name") + "</td>"
                 + "<td width=\"25%\">" + rs.getString("artist") + "</td>"
@@ -51,7 +49,6 @@ public class Edit extends HttpServlet {
                 + "<td width=\"15%\">" + rs.getString("play_list_name") + "</td>"
                 + "<td width=\"10%\"><a href=\"Delete?song_id=" + rs.getString("play_lists.song_id") + "&user_id=" + rs.getString("play_lists.user_id") + "\">Delete</a></td></tr>";
                 
-                x++;
             }
             table = table + "</table>";
 

@@ -2,20 +2,17 @@
 
 <%@ include file="header.jsp" %>
 
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+    $('#zebra').dataTable( {
+      "sPaginationType": "full_numbers"	
+    } );
+  } );
+</script>
+
 <h1>Master Song List</h1>
 
 <%= request.getAttribute("table") %>
 
-<%
-    if(request.getAttribute("page_links")!="") {
-%>
-<br />
-<div style="float: right">
-<%= request.getAttribute("page_links") %>
-</div>
-<br /><br />
-<%
-    } 
-%>
 
 <%@ include file="footer.jsp" %>
