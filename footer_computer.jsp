@@ -1,6 +1,8 @@
     </div>
-    
+   </div>
+
 <div class="clear"></div>
+<br /><br />
 
   <div id="footer">
     <center><br /><br />
