@@ -17,7 +17,7 @@ Select a playlist below from the user's available playlists.
 
 
 <tr>
-  <td>Select Play List:</td>
+  <th>Select Play List:</th>
   <td><select name="play_list_id">
   <%= request.getAttribute("select_box") %>
   </select>

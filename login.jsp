@@ -17,10 +17,10 @@
 <table cellspacing=10>
 
 <tr>
-  <td>Email:</td><td><input type="text" name="user"></td>
+  <th>Email:</td><th><input type="text" name="user"></td>
 </tr>
 <tr>
-  <td>Password:</td><td><input type="password" name="password"></td>
+  <th>Password:</td><th><input type="password" name="password"></td>
 </tr>
 <tr>
   <td colspan="2"><input type="submit" value="submit">

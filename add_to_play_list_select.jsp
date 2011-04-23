@@ -18,11 +18,11 @@ Select a playlist below to add this song to.  You can also create a new playlist
     if(request.getAttribute("select_box")!="") {
 %>
 <tr>
-  <td>Existing PlayList:</td>
-  <td><select name="existing">
+  <th>Existing PlayList:</th>
+  <th><select name="existing">
   <%= request.getAttribute("select_box") %>
   </select>
-  </td>
+  </th>
 </tr>
 <%
 }
