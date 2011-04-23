@@ -1,5 +1,7 @@
     </div>
-  </div>
+    
+<div class="clear"></div>
+
   <div id="footer">
     <center><br /><br />
       Copyright &copy; 2011 Our Group.<br /><br /><br />

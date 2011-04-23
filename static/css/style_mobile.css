@@ -35,6 +35,8 @@ li{margin:15px; }
 
 /* items below are the same in our CSS file for regular browswers */
 
+input {border:1px solid blue;font-size:0.9em;padding:5px;}
+
 #greeting {float:right; text-align: right;margin-top: 3px;font-size:16px;color: blue;}
 #greeting a{text-decoration: underline;color: blue; font-weight: bold;}
 

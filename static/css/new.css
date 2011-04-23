@@ -53,6 +53,7 @@ img.header {
 }
 body { background-color: white;font-family:Helvetica,Arial,sans-serif;color:#282828;font-size:13px; }
 
+input {border:1px solid blue;font-size:0.9em;padding:5px;}
 
 /* links */
 a{color:blue;text-decoration:none;}

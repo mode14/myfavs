@@ -1,5 +1,7 @@
   </div> 
 
+<div class="clear"></div>
+
 <!-- / main -->
 
 <!-- footer -->
