@@ -30,7 +30,7 @@
 <%
     if(session.getAttribute("login")=="go") {
 %>
-Welcome Mobile User: <%= session.getAttribute("full_name") %> | <a href="logout.jsp">Logout</a>
+Mobile User: <%= session.getAttribute("full_name") %> | <a href="logout.jsp">Logout</a>
 <%
     } else {
 %>
