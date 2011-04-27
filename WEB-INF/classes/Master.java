@@ -25,58 +25,63 @@ public class Master extends HttpServlet {
         HttpSession s = req.getSession();
         
         MemcachedClient c=new MemcachedClient(new InetSocketAddress("127.0.0.1", 11211));
-        Object cachedMaster=c.get("master");
+        Object cachedMaster=null;
+        //user is not logged in, get cached master list
+        if(s.getAttribute("login") == null)
+        {
+            cachedMaster=c.get("master");
+        }
 
         if(cachedMaster==null)
         //cache miss
         {
-        try{
-            String dbuser = this.getServletContext().getInitParameter("dbuser");
-            String dbpassword = this.getServletContext().getInitParameter("dbpassword");
+            try{
+                String dbuser = this.getServletContext().getInitParameter("dbuser");
+                String dbpassword = this.getServletContext().getInitParameter("dbpassword");
             
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection ("jdbc:mysql://localhost/project", dbuser, dbpassword);
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection conn = DriverManager.getConnection ("jdbc:mysql://localhost/project", dbuser, dbpassword);
 
 
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM songs ORDER BY song_name");
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery("SELECT * FROM songs ORDER BY song_name");
 
-            String table = "<table class=\"display\" id=\"zebra\"><thead><tr><th>Song</th><th>Artist</th><th>Album</th><th>Genre</th><th>Votes</th></tr></thead>";
-            while(rs.next() )
-            {
-                table = table + "<tr>";
-                if(s.getAttribute("login") != null && (String) s.getAttribute("login") == "go")
+                String table = "<table class=\"display\" id=\"zebra\"><thead><tr><th>Song</th><th>Artist</th><th>Album</th><th>Genre</th><th>Votes</th></tr></thead>";
+                while(rs.next() )
                 {
-                    if(s.getAttribute("admin") != null && (String) s.getAttribute("admin") == "1")
-                        table = table + "<td width=\"25%\">" + rs.getString("song_name") + "<br /><a href=Update?song_id=" + rs.getString("song_id") + ">Update</a> | <a href=AddToPlayList?song_id=" + rs.getString("song_id") + "&user_id=" + s.getAttribute("user_id") + ">(Add to playlist)</a></td>";
+                    table = table + "<tr>";
+                    if(s.getAttribute("login") != null && (String) s.getAttribute("login") == "go")
+                    {
+                        if(s.getAttribute("admin") != null && (String) s.getAttribute("admin") == "1")
+                            table = table + "<td width=\"25%\">" + rs.getString("song_name") + "<br /><a href=Update?song_id=" + rs.getString("song_id") + ">Update</a> | <a href=AddToPlayList?song_id=" + rs.getString("song_id") + "&user_id=" + s.getAttribute("user_id") + ">(Add to playlist)</a></td>";
+                        else
+                            table = table + "<td width=\"25%\">" + rs.getString("song_name") + "<br /><a href=AddToPlayList?song_id=" + rs.getString("song_id") + "&user_id=" + s.getAttribute("user_id") + ">(Add to playlist)</a></td>";
+                    }
                     else
-                        table = table + "<td width=\"25%\">" + rs.getString("song_name") + "<br /><a href=AddToPlayList?song_id=" + rs.getString("song_id") + "&user_id=" + s.getAttribute("user_id") + ">(Add to playlist)</a></td>";
-                }
-                else
-                {
-                    table = table + "<td width=\"25%\">" + rs.getString("song_name") + "</td>";
-                }
-                table = table + "<td width=\"25%\">" + rs.getString("artist") + "</td>"
-                + "<td width=\"25%\">" + rs.getString("album") + "</td>"
-                + "<td width=\"15%\">" + rs.getString("genre") + "</td>"
-                + "<td width=\"10%\">" + rs.getString("votes") + " <a href=\"Vote?song_id=" + rs.getString("song_id") + "\">Vote</a></td></tr>";
+                    {
+                        table = table + "<td width=\"25%\">" + rs.getString("song_name") + "</td>";
+                    }
+                    table = table + "<td width=\"25%\">" + rs.getString("artist") + "</td>"
+                    + "<td width=\"25%\">" + rs.getString("album") + "</td>"
+                    + "<td width=\"15%\">" + rs.getString("genre") + "</td>"
+                    + "<td width=\"10%\">" + rs.getString("votes") + " <a href=\"Vote?song_id=" + rs.getString("song_id") + "\">Vote</a></td></tr>";
                     
+                }
+                table = table + "</table>";
+            
+                //set memcache for next time
+                c.set("master", 3600, table);
+            
+                rs.close();
+                stmt.close();
+                conn.close();
+            
+                req.setAttribute("table", table);
+                req.getRequestDispatcher("master.jsp").forward(req, res);
+            
+            }  catch (Exception e) {
+                out.println(e.getMessage());
             }
-            table = table + "</table>";
-            
-            //set memcache for next time
-            c.set("master", 3600, table);
-            
-            rs.close();
-            stmt.close();
-            conn.close();
-            
-            req.setAttribute("table", table);
-            req.getRequestDispatcher("master.jsp").forward(req, res);
-            
-        }  catch (Exception e) {
-            out.println(e.getMessage());
-        }
         
         }
         else
