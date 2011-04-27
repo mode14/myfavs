@@ -25,9 +25,14 @@ public class Master extends HttpServlet {
         HttpSession s = req.getSession();
         
         MemcachedClient c=new MemcachedClient(new InetSocketAddress("127.0.0.1", 11211));
-        Object cachedMaster=null;
+        Object cachedMaster;
+        //user logged in, generate fresh master
+        if(s.getAttribute("login") != null && (String) s.getAttribute("login") == "go")
+        {
+            cachedMaster = null;
+        }
         //user is not logged in, get cached master list
-        if(s.getAttribute("login") == null)
+        else
         {
             cachedMaster=c.get("master");
         }
