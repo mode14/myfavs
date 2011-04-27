@@ -10,17 +10,26 @@ import javax.servlet.http.*;
 
 import java.sql.*;
 
+import net.spy.memcached.*;
+import java.net.InetSocketAddress;
+
 public class Master extends HttpServlet {
 
     public void doGet(HttpServletRequest req, HttpServletResponse res)
         throws IOException, ServletException {
-        
+
         res.setContentType("text/html");
         PrintWriter out = res.getWriter();
         
         /* Get Session */
         HttpSession s = req.getSession();
+        
+        MemcachedClient c=new MemcachedClient(new InetSocketAddress("127.0.0.1", 11211));
+        Object cachedMaster=c.get("master");
 
+        if(cachedMaster==null)
+        //cache miss
+        {
         try{
             String dbuser = this.getServletContext().getInitParameter("dbuser");
             String dbpassword = this.getServletContext().getInitParameter("dbpassword");
@@ -55,6 +64,9 @@ public class Master extends HttpServlet {
             }
             table = table + "</table>";
             
+            //set memcache for next time
+            c.set("master", 3600, table);
+            
             rs.close();
             stmt.close();
             conn.close();
@@ -64,6 +76,15 @@ public class Master extends HttpServlet {
             
         }  catch (Exception e) {
             out.println(e.getMessage());
+        }
+        
+        }
+        else
+        {
+            //cache hit
+            //req.setAttribute("table", cachedMaster);
+            req.setAttribute("table", "hit");
+            req.getRequestDispatcher("master.jsp").forward(req, res);
         }
 
     }
