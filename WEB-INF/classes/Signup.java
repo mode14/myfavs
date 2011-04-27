@@ -35,7 +35,8 @@ public class Signup extends HttpServlet {
             Connection conn = DriverManager.getConnection ("jdbc:mysql://localhost/project", dbuser, dbpassword);
 
             Statement stmt = conn.createStatement();
-            stmt.execute( "INSERT INTO users VALUES(null, '" + req.getParameter("user") + "', '" + req.getParameter("password") + "', '" + req.getParameter("full_name") + "',0)" );            
+            //stmt.execute( "INSERT INTO users VALUES(null, '" + req.getParameter("user") + "', '" + req.getParameter("password") + "', '" + req.getParameter("full_name") + "',0)" );            
+            stmt.execute( "INSERT INTO users VALUES(null, '" + req.getParameter("user") + "', MD5('" + req.getParameter("password") + "'), '" + req.getParameter("full_name") + "',0)" );            
             
             stmt.close();
             conn.close();

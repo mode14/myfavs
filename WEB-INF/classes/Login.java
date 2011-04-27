@@ -36,30 +36,24 @@ public class Login extends HttpServlet {
 
             //Prepared statement for security
             Statement stmt = conn.createStatement();
-            String selectStatement = "SELECT * FROM users where user= ?";
+            String selectStatement = "SELECT * FROM users where user= ? AND password=MD5(?)";
             PreparedStatement prepStmt = conn.prepareStatement(selectStatement);
             prepStmt.setString(1, req.getParameter("user"));
+            prepStmt.setString(2, req.getParameter("password"));
             
             ResultSet rs = prepStmt.executeQuery();
             //ResultSet rs = stmt.executeQuery();            
 
             if( rs.next() ) 
             {            
-                if( rs.getString("password").equals(req.getParameter("password")) )
+                if(rs.getString("admin").equals("1") )
                 {
-                    if(rs.getString("admin").equals("1") )
-                    {
-                        s.setAttribute("admin", "1");
-                    }
-                    s.setAttribute("login", "go");
-                    s.setAttribute("full_name", rs.getString("full_name"));   
-                    s.setAttribute("user_id", rs.getString("user_id"));                     
-                    res.sendRedirect("Main");
+                    s.setAttribute("admin", "1");
                 }
-                else
-                {
-                    req.getRequestDispatcher("login.jsp?error=1").forward(req, res); 
-                }
+                s.setAttribute("login", "go");
+                s.setAttribute("full_name", rs.getString("full_name"));   
+                s.setAttribute("user_id", rs.getString("user_id"));                     
+                res.sendRedirect("Main");
             }
             else
             {
