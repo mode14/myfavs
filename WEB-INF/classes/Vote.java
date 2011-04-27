@@ -10,6 +10,9 @@ import javax.servlet.http.*;
 
 import java.sql.*;
 
+import net.spy.memcached.*;
+import java.net.InetSocketAddress;
+
 public class Vote extends HttpServlet {
 
     public void doGet(HttpServletRequest req, HttpServletResponse res)
@@ -47,6 +50,10 @@ public class Vote extends HttpServlet {
 
             stmt2.close();
             conn.close();
+            
+            //delete memcache entry since votes are updated
+            MemcachedClient c=new MemcachedClient(new InetSocketAddress("127.0.0.1", 11211));
+            c.delete("master");
                         
             req.getRequestDispatcher("vote_success.jsp").forward(req, res);
             

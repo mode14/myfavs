@@ -82,8 +82,7 @@ public class Master extends HttpServlet {
         else
         {
             //cache hit
-            //req.setAttribute("table", cachedMaster);
-            req.setAttribute("table", "hit");
+            req.setAttribute("table", cachedMaster);
             req.getRequestDispatcher("master.jsp").forward(req, res);
         }
 

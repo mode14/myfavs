@@ -10,6 +10,10 @@ import javax.servlet.http.*;
 
 import java.sql.*;
 
+import net.spy.memcached.*;
+import java.net.InetSocketAddress;
+
+
 public class AddSong extends HttpServlet {
 
     public void doGet(HttpServletRequest req, HttpServletResponse res)
@@ -43,6 +47,10 @@ public class AddSong extends HttpServlet {
                       
             stmt.close();
             conn.close();
+            
+            //delete memcache since new song is now added
+            MemcachedClient c=new MemcachedClient(new InetSocketAddress("127.0.0.1", 11211));
+            c.delete("master");
             
             req.getRequestDispatcher("add_song_success.jsp").forward(req, res); 
             

@@ -19,7 +19,13 @@
 
 <h1>Add Song to Master Song List</h1>
 
+<%
+    if(session.getAttribute("admin")=="1") {
+%>
 <a href="import.jsp">Click here to import your iTunes playlist</a>
+<%
+    }
+%>
 
 <form action="AddSong" id="error_form" method="post">
 <table cellspacing=10>

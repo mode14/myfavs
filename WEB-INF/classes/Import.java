@@ -14,6 +14,9 @@ import java.sql.*;
 import java.io.*;
 import java.util.*;
 
+import net.spy.memcached.*;
+import java.net.InetSocketAddress;
+
 public class Import extends HttpServlet {
         
     public void doGet(HttpServletRequest req, HttpServletResponse res)
@@ -80,6 +83,10 @@ public class Import extends HttpServlet {
 
             in.close();
             conn.close();
+            
+            //reset memcache since we have new songs
+            MemcachedClient c=new MemcachedClient(new InetSocketAddress("127.0.0.1", 11211));
+            c.delete("master");
             
             req.getRequestDispatcher("import_success.jsp").forward(req, res); 
             
