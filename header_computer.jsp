@@ -3,7 +3,18 @@
 <head>
   <title>Play List</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-  <link href="static/css/new.css" rel="stylesheet" type="text/css" />
+
+<%
+	if(session.getAttribute("lights")=="off") {
+%>
+	<link href="static/css/mse.css" rel="stylesheet" type="text/css" />
+<%
+	} else {
+%>
+	<link href="static/css/new.css" rel="stylesheet" type="text/css" />
+<%
+	}
+%>
 
   <script src="static/js/main.js"></script>
 

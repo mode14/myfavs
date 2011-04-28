@@ -173,4 +173,13 @@
         <servlet-name>Update</servlet-name>
         <url-pattern>/Update</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ChangeLights</servlet-name>
+        <servlet-class>ChangeLights</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ChangeLights</servlet-name>
+        <url-pattern>/ChangeLights</url-pattern>
+    </servlet-mapping>
 </web-app>
