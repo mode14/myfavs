@@ -12,7 +12,6 @@
   	/* text-align: center ; */
 	min-height: 350px;
   	overflow: auto ;
-	color:#B8B8B8;
 	z-index:1;
 	background-color:black;
 	/* backgroud-image: url */
@@ -45,15 +44,17 @@
 	border-width: thin;
 	width: 100% ;
 	overflow: auto ;
+	background-image: url("../images/HeaderBackgroundDark.jpg");
 	background-size: 100%;
 }
 img.header {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	visibility:hidden;
 }
 body { background-color: black;font-family:Helvetica,Arial,sans-serif;color:#282828;font-size:13px; }
+form {color:#B8B8B8;}
+#faq {color:#B8B8B8;}
 
 
 input {border:1px solid blue;font-size:0.9em;padding:5px;}

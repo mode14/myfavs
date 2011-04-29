@@ -7,7 +7,7 @@
     if (request.getParameter("error") != null)
     {
 %>
-<div class="error">Error: No common songs found.</div>
+<div class="error">Sorry, you two have no common songs.</div>
 <%    
     }
 %>

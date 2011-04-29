@@ -39,7 +39,7 @@ public class Common extends HttpServlet {
             ResultSet rs = stmt.executeQuery("SELECT * FROM play_lists NATURAL JOIN songs NATURAL JOIN users NATURAL JOIN user_play_lists WHERE play_lists.user_id = '" + req.getParameter("user_id") + "' AND song_id IN (" + mySongs + ") ORDER BY song_name");            
 
             String table = "<table class=\"stripe\"><tr><th>Song</th><th>Artist</th><th>Album</th><th>Genre</th><th>Play List</th><th>Votes</th></tr>";
-            String full_name = null;
+            String full_name = "User";
             int x = 0;
 
             if(!rs.next())

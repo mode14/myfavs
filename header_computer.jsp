@@ -3,7 +3,6 @@
 <head>
   <title>Play List</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-
 <%
 	if(session.getAttribute("lights")=="off") {
 %>
@@ -15,7 +14,7 @@
 <%
 	}
 %>
-
+  
   <script src="static/js/main.js"></script>
 
   <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon" /> 
@@ -24,8 +23,7 @@
 
 
 <div id="layout">
-  <div id="header">
-  
+  <div id="header">  
   <div id="greeting">
 	<!-- HEADER - put any utilities such as sign in here -->
 <%
@@ -42,7 +40,17 @@ Welcome: <%= session.getAttribute("full_name") %> | <a href="logout.jsp">Logout<
   </div>
 
 	<!-- LINK TO HOMEPAGE HERE -->
+<%
+	if(session.getAttribute("lights")=="off") {
+%>
+	<a href = ""><img src = "static/images/LogoDark.jpg" width = "150" height = "150", class = "header"></a>
+<%
+	} else {
+%>
 	<a href = ""><img src = "static/images/Logo.jpg" width = "150" height = "150", class = "header"></a>
+<%	
+	}
+%>
   </div>
   <div id="navbar">
 	<a href ="Main" ><img src = "static/images/buttons/MainRegular.jpg" height = "50" width = "150" name = "Button" onMouseOver = "this.src = 'static/images/buttons/MainSelected.jpg'" onMouseOut = "this.src = 'static/images/buttons/MainRegular.jpg'"></a><br>
