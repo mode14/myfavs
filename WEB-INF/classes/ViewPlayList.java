@@ -29,7 +29,7 @@ public class ViewPlayList extends HttpServlet {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection ("jdbc:mysql://localhost/project", dbuser, dbpassword);
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM user_play_lists WHERE user_id = '" + req.getParameter("user_id") + "'ORDER BY play_list_name");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM user_play_lists WHERE user_id = '" + req.getParameter("user_id") + "' AND play_list_id IN (SELECT DISTINCT play_list_id FROM play_lists) ORDER BY play_list_name");
 
             while(rs.next() )
             {
