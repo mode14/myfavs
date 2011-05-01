@@ -40,10 +40,6 @@ Mobile User: <%= session.getAttribute("full_name") %> | <a href="logout.jsp">Log
 %>
 
     </div>
-
-    <!-- logo -->
-    <a href="/"></a>
-    <!-- / logo -->
     
     <br /><br /><br /><h1><a href="menu_mobile.jsp">Main Menu</a></h1>
   

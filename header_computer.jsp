@@ -43,11 +43,11 @@ Welcome: <%= session.getAttribute("full_name") %> | <a href="logout.jsp">Logout<
 <%
 	if(session.getAttribute("lights")=="off") {
 %>
-	<a href = ""><img src = "static/images/LogoDark.jpg" width = "150" height = "150", class = "header"></a>
+	<a href = "/"><img src = "static/images/LogoDark.jpg" width = "150" height = "150", class = "header"></a>
 <%
 	} else {
 %>
-	<a href = ""><img src = "static/images/Logo.jpg" width = "150" height = "150", class = "header"></a>
+	<a href = "/"><img src = "static/images/Logo.jpg" width = "150" height = "150", class = "header"></a>
 <%	
 	}
 %>
