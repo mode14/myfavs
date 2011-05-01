@@ -47,7 +47,7 @@ public class Edit extends HttpServlet {
                 + "<td width=\"25%\">" + rs.getString("album") + "</td>"
                 + "<td width=\"15%\">" + rs.getString("genre") + "</td>"
                 + "<td width=\"15%\">" + rs.getString("play_list_name") + "</td>"
-                + "<td width=\"10%\"><a href=\"Delete?song_id=" + rs.getString("play_lists.song_id") + "&user_id=" + rs.getString("play_lists.user_id") + "\">Delete</a></td></tr>";
+                + "<td width=\"10%\"><a href=\"Delete?song_id=" + rs.getString("play_lists.song_id") + "&play_list_id=" + rs.getString("play_lists.play_list_id") + "&user_id=" + rs.getString("play_lists.user_id") + "\">Delete</a></td></tr>";
                 
             }
             table = table + "</table>";

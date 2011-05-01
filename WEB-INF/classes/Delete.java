@@ -35,7 +35,7 @@ public class Delete extends HttpServlet {
             Connection conn = DriverManager.getConnection ("jdbc:mysql://localhost/project", dbuser, dbpassword);
 
             Statement stmt = conn.createStatement();
-            stmt.execute( "DELETE FROM play_lists WHERE user_id = '" + req.getParameter("user_id") + "' AND song_id = '" + req.getParameter("song_id") + "'" );            
+            stmt.execute( "DELETE FROM play_lists WHERE user_id = '" + req.getParameter("user_id") + "' AND song_id = '" + req.getParameter("song_id") + "' AND play_list_id = '" + req.getParameter("play_list_id") + "'" );            
 
             stmt.close();
             conn.close();

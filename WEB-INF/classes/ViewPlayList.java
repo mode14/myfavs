@@ -77,7 +77,7 @@ public class ViewPlayList extends HttpServlet {
                 table = table + "<tr>";
                 if(s.getAttribute("login") != null && (String) s.getAttribute("login") == "go")
                 {
-                    table = table + "<td width=\"25%\">" + rs.getString("song_name") + "<br /><a href=AddToPlayList?song_id=" + rs.getString("play_lists.song_id") + "&user_id=" + rs.getString("play_lists.user_id") + ">(Add to playlist)</a></td>";
+                    table = table + "<td width=\"25%\">" + rs.getString("song_name") + "<br /><a href=AddToPlayList?song_id=" + rs.getString("play_lists.song_id") + "&user_id=" + s.getAttribute("user_id") + ">(Add to playlist)</a></td>";
                 }
                 else
                 {
