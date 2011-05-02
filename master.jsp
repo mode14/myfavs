@@ -5,7 +5,8 @@
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function() {
     $('#zebra').dataTable( {
-      "sPaginationType": "full_numbers"	
+      "sPaginationType": "full_numbers",
+      
     } );
   } );
 </script>

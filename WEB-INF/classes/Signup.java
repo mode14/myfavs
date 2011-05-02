@@ -34,14 +34,27 @@ public class Signup extends HttpServlet {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection ("jdbc:mysql://localhost/project", dbuser, dbpassword);
 
-            Statement stmt = conn.createStatement();
-            //stmt.execute( "INSERT INTO users VALUES(null, '" + req.getParameter("user") + "', '" + req.getParameter("password") + "', '" + req.getParameter("full_name") + "',0)" );            
-            stmt.execute( "INSERT INTO users VALUES(null, '" + req.getParameter("user") + "', MD5('" + req.getParameter("password") + "'), '" + req.getParameter("full_name") + "',0)" );            
+            Statement stmt2 = conn.createStatement();
+            ResultSet rs = stmt2.executeQuery("SELECT * FROM users where user='" + req.getParameter("user") + "'");
+            //Check for existing user
+            if(rs.next())
+            {
+                rs.close();
+                stmt2.close();
+                conn.close();
+                req.getRequestDispatcher("user_error.jsp").forward(req, res); 
+            }
+            else
+            {
+                Statement stmt = conn.createStatement();
+                //stmt.execute( "INSERT INTO users VALUES(null, '" + req.getParameter("user") + "', '" + req.getParameter("password") + "', '" + req.getParameter("full_name") + "',0)" );            
+                stmt.execute( "INSERT INTO users VALUES(null, '" + req.getParameter("user") + "', MD5('" + req.getParameter("password") + "'), '" + req.getParameter("full_name") + "',0)" );            
             
-            stmt.close();
-            conn.close();
+                stmt.close();
+                conn.close();
             
-            req.getRequestDispatcher("signup_success.jsp").forward(req, res); 
+                req.getRequestDispatcher("signup_success.jsp").forward(req, res); 
+            }
                       
         }  catch (Exception e) {
             out.println(e.getMessage());
